@@ -35,9 +35,14 @@ class Pegawai{
         $TK = ($status == "Menikah") ? 0.1 * $this->setGajiPokok($this->jabatan) : 0;
         return $TK;
     }
+    public function setGajiKotor($jabatan){
+        $this->jabatan = $jabatan;
+        $GK = $this->setGajiPokok($this->jabatan)+$this->setTunjab($this->jabatan)+$this->setTunkel($this->status);
+        return $GK;
+    }
     public function setZakatProfesi($agama){
         $this->agama = $agama;
-        $ZP = ($agama == "Islam" && $this->setGajiPokok($this->jabatan) >= 6000000) ? 0.025 * $this->setGajiPokok($this->jabatan) : 0;
+        $ZP = ($agama == "Islam" && $this->setGajiKotor($this->jabatan) >= 6000000) ? 0.025 * $this->setGajiPokok($this->jabatan) : 0;
         return $ZP;
     }
 
@@ -52,7 +57,7 @@ class Pegawai{
         echo '<br>Tunjangan Jabatan : Rp.'.number_format($this->setTunjab($this->jabatan),0,',','.');
         echo '<br>Tunjangan Keluarga : Rp.'.number_format($this->setTunkel($this->status),0,',','.'),"<br>";
         echo '<br>Zakat Profesi: Rp.'.number_format($this->setZakatProfesi($this->agama),0,',','.'),"<br>";
-        echo '<b><br>Gaji Bersih :</b> Rp.'.number_format($this->setGajiPokok($this->jabatan)+$this->setTunjab($this->jabatan)+$this->setTunkel($this->status)-$this->setZakatProfesi($this->agama),0,',','.');
+        echo '<b><br>Gaji Bersih :</b> Rp.'.number_format($this->setGajiKotor($this->jabatan)-$this->setZakatProfesi($this->agama),0,',','.');
         echo '<hr>';
     }
 }

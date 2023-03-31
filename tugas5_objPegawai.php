@@ -2,7 +2,7 @@
 require 'tugas_5.php';
 
 $pegawai1 = new Pegawai('01111','Andi','Manager','Islam','Menikah');
-$pegawai2 = new Pegawai('01112','Dani','Staff','Kristen','Menikah');
+$pegawai2 = new Pegawai('01112','Dani','Staff','Islam','Menikah');
 $pegawai3 = new Pegawai('01113','Fani','Asisten Manager','Hindu','Belum Menikah');
 $pegawai4 = new Pegawai('01114','Ghani','Kepala Bagian','Budha','Menikah');
 $pegawai5 = new Pegawai('01115','Sony','Manager','Konghucu','Belum Menikah');
