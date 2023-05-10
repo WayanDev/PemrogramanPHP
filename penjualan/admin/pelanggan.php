@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
 <?php
-    $model=new Pelanggan();
+    $model = new Pelanggan();
     $data_pelanggan = $model->dataPelanggan();
 ?>
                         <h1 class="mt-4">Data Pelanggan</h1>
@@ -15,8 +15,9 @@
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Data Pelanggan
+                                <!-- <i class="fas fa-table me-1"></i>
+                                Data Pelanggan-->
+                                <a href="index.php?url=pelanggan_form" class="btn btn-primary btn-sm">Tambah</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -30,6 +31,7 @@
                                             <th>Tanggal Lahir</th>
                                             <th>Email</th>
                                             <th>Kartu ID</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -42,6 +44,7 @@
                                             <th>Tanggal Lahir</th>
                                             <th>Email</th>
                                             <th>Kartu ID</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -57,7 +60,16 @@
                                                 <th><?= $row['tmp_lahir'] ?></th>
                                                 <th><?= $row['tgl_lahir'] ?></th>
                                                 <th><?= $row['email'] ?></th>
-                                                <th><?= $row['kartu_id'] ?></th>
+                                                <th><?= $row['kartu'] ?></th>
+                                                <td>
+                                                    <form action="pelanggan_controller.php" method="post">
+                                                        <a href="index.php?url=pelanggan_detail&id=<?= $row ['id'] ?>" class="btn btn-info btn-sm">Detail</a>
+                                                        <a href="" class="btn btn-warning btn-sm">Ubah</a>
+                                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                                    
+                                                        <input type="hidden" name="idx" value="<?= $row['id']?>">
+                                                    </form>
+                                                </td>
                                             </tr>
                                             <?php
                                             $no++;

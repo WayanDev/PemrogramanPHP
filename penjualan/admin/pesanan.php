@@ -15,8 +15,9 @@
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Data Pesanan
+                                <!--<i class="fas fa-table me-1"></i>
+                                Data Pesanan-->
+                                <a href="index.php?url=pesanan_form" class="btn btn-primary btn-sm">Tambah</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -24,16 +25,18 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
+                                            <th>Nama</th>
                                             <th>Total</th>
-                                            <th>Pelanggan ID</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
+                                            <th>Nama</th>
                                             <th>Total</th>
-                                            <th>Pelanggan ID</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -43,10 +46,18 @@
                                             ?>
                                             <tr>
                                                 <th><?= $no ?></th>
-                                                <th><?= $row['kode'] ?></th>
                                                 <th><?= $row['tanggal'] ?></th>
+                                                <th><?= $row['nama'] ?></th>
                                                 <th><?= $row['total'] ?></th>
-                                                <th><?= $row['pelanggan_id'] ?></th>
+                                                <th>
+                                                    <form action="pesanan_controller.php" method="post">
+                                                        <a href="index.php?url=pesanan_detail&id=<?= $row ['id'] ?>" class="btn btn-info btn-sm">Detail</a>
+                                                        <a href="" class="btn btn-warning btn-sm">Ubah</a>
+                                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                                    
+                                                        <input type="hidden" name="idx" value="<?= $row['id']?>">
+                                                    </form>
+                                                </th>
                                             </tr>
                                             <?php
                                             $no++;

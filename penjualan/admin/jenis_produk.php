@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
 <?php
-    $model=new JenisProduk();
+    $model = new JenisProduk();
     $jenis_produk = $model->JenisProduk();
 ?>
                         <h1 class="mt-4">Jenis Produk</h1>

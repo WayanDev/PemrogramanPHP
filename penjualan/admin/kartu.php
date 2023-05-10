@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
 <?php
-    $model=new Kartu();
+    $model = new Kartu();
     $data_kartu = $model->dataKartu();
 ?>
                         <h1 class="mt-4">Data Kartu</h1>
@@ -15,8 +15,9 @@
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Data Kartu
+                                <!--<i class="fas fa-table me-1"></i>
+                                Data <Kartu--></Kartu-->
+                                <a href="index.php?url=kartu_form" class="btn btn-primary btn-sm">Tambah</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -27,6 +28,7 @@
                                             <th>Nama</th>
                                             <th>Diskon</th>
                                             <th>Iuran</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -36,6 +38,7 @@
                                             <th>Nama</th>
                                             <th>Diskon</th>
                                             <th>Iuran</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -49,6 +52,15 @@
                                                 <th><?= $row['nama'] ?></th>
                                                 <th><?= $row['diskon'] ?></th>
                                                 <th><?= $row['iuran'] ?></th>
+                                                <th>
+                                                    <form action="kartu_controller.php" method="post">
+                                                        <a href="index.php?url=kartu_detail&id=<?= $row ['id'] ?>" class="btn btn-info btn-sm">Detail</a>
+                                                        <a href="" class="btn btn-warning btn-sm">Ubah</a>
+                                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                                    
+                                                        <input type="hidden" name="idx" value="<?= $row['id']?>">
+                                                    </form>
+                                                </th>
                                             </tr>
                                             <?php
                                             $no++;

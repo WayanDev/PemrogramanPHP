@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
 <?php
-    $model=new Produk();
+    $model = new Produk;
     $data_produk = $model->dataProduk();
 ?>
                         <h1 class="mt-4">Data Produk</h1>
@@ -15,8 +15,9 @@
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Data Produk
+                                <!--<i class="fas fa-table me-1"></i>
+                                Data Produk-->
+                                <a href="index.php?url=produk_form" class="btn btn-primary btn-sm">Tambah</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -30,6 +31,7 @@
                                             <th>Stok</th>
                                             <th>Minimal Stok</th>
                                             <th>Jenis Produk</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -42,6 +44,7 @@
                                             <th>Stok</th>
                                             <th>Minimal Stok</th>
                                             <th>Jenis Produk</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -57,7 +60,16 @@
                                                 <th><?= $row['harga_jual'] ?></th>
                                                 <th><?= $row['stok'] ?></th>
                                                 <th><?= $row['min_stok'] ?></th>
-                                                <th><?= $row['jenis_produk_id'] ?></th>
+                                                <th><?= $row['kategori'] ?></th>
+                                                <td>
+                                                    <form action="produk_controller.php" method="post">
+                                                        <a href="index.php?url=produk_detail&id=<?= $row ['id'] ?>" class="btn btn-info btn-sm">Detail</a>
+                                                        <a href="" class="btn btn-warning btn-sm">Ubah</a>
+                                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                                    
+                                                        <input type="hidden" name="idx" value="<?= $row['id']?>">
+                                                    </form>
+                                                </td>
                                             </tr>
                                             <?php
                                             $no++;
