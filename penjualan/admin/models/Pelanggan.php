@@ -27,5 +27,17 @@
         $ps = $this->koneksi->prepare($sql);//prepare statement PDO
         $ps->execute($data);
     }
+
+    public function ubah($data){
+        $sql = "UPDATE pelanggan SET kode=?,nama_pelanggan=?,jk=?,tmp_lahir=?,tgl_lahir=?,alamat=?,email=?,kartu_id=? WHERE id=?";
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute($data);
+    }
+
+    public function hapus($id){
+        $sql = "DELETE FROM pelanggan WHERE id=?";
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute([$id]);
+    }
     }
 ?>

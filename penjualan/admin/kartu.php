@@ -55,8 +55,8 @@
                                                 <th>
                                                     <form action="kartu_controller.php" method="post">
                                                         <a href="index.php?url=kartu_detail&id=<?= $row ['id'] ?>" class="btn btn-info btn-sm">Detail</a>
-                                                        <a href="" class="btn btn-warning btn-sm">Ubah</a>
-                                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                                        <a href="index.php?url=kartu_form&idedit=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Ubah</a>
+                                                        <button type="submit" class="btn btn-danger btn-sm" name="proses" value="hapus" onclick="confirm('Apakah anda yakin ingin menghapus?')">Hapus</button>
                                                     
                                                         <input type="hidden" name="idx" value="<?= $row['id']?>">
                                                     </form>

@@ -43,8 +43,10 @@ $pelanggan = $model->getPelanggan($id);
     <div class="mb-3">
       <label for="kartu" class="form-label">Jenis Kartu</label>
       <select name="kartu_id" class="form-control" id="kartu">
-        <option value="1" <?= $pelanggan['kartu_id'] == "1" ? "selected" : '' ?>>Gold</option>
-        <option value="2" <?= $pelanggan['kartu_id'] == "2" ? "selected" : '' ?>>Silver</option>
+        <option value="1" <?= $pelanggan['kartu_id'] == "1" ? "selected" : '' ?>>Gold Utama</option>
+        <option value="2" <?= $pelanggan['kartu_id'] == "2" ? "selected" : '' ?>>Platinum Jaya</option>
+        <option value="3" <?= $pelanggan['kartu_id'] == "3" ? "selected" : '' ?>>Silver</option>
+        <option value="4" <?= $pelanggan['kartu_id'] == "4" ? "selected" : '' ?>>Non Member</option>
       </select>
     </div>
     <button type="submit" name="tombol" value="ubah" class="btn btn-success">Ubah</button>

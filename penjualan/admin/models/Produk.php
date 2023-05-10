@@ -30,6 +30,18 @@ class Produk{
         $ps = $this->koneksi->prepare($sql);//prepare statement PDO
         $ps->execute($data);
     }
+
+    public function ubah($data){
+        $sql = "UPDATE produk SET kode=?,nama=?,harga_beli=?,Harga_jual=?,stok=?,min_stok=?,jenis_produk_id=? WHERE id=?";
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute($data);
+    }
+
+    public function hapus($id){
+        $sql = "DELETE FROM produk WHERE id=?";
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute([$id]);
+    }
 }
 
 ?>
