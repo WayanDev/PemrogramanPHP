@@ -1,0 +1,84 @@
+body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.jumbotron {
+    background-color: #03428B;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+.container-fluid {
+    padding: 60px 50px;
+}
+
+.carousel-item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #03428B;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+.fa-question,
+.fa-eye {
+    font-size: 200px;
+    margin-bottom: 20px;
+    color: #F8C300;
+}
+
+.icon-small {
+    color: #F8C300;
+    font-size: 50px;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover {
+    color: #F8C300 !important;
+}
+
+.hasil {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+
+.hasil img {
+    margin-bottom: 10px;
+}
