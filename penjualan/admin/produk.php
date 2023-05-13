@@ -2,6 +2,9 @@
 <?php
     $model = new Produk;
     $data_produk = $model->dataProduk();
+
+    $sesi = $_SESSION['MEMBER'];
+    if(isset($sesi)){
 ?>
                         <h1 class="mt-4">Data Produk</h1>
                         <ol class="breadcrumb mb-4">
@@ -63,11 +66,17 @@
                                                 <th><?= $row['kategori'] ?></th>
                                                 <td>
                                                     <form action="produk_controller.php" method="post">
+                                                    <?php     
+                                                    if($sesi['role']!='staff'){
+                                                        ?>
                                                         <a href="index.php?url=produk_detail&id=<?= $row ['id'] ?>" class="btn btn-info btn-sm">Detail</a>
                                                         <a href="index.php?url=produk_form&idedit=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Ubah</a>
+                                                        
+                                                        
                                                         <button type="submit" class="btn btn-danger btn-sm" name="proses" value="hapus" onclick="confirm('Apakah anda yakin ingin menghapus?')">Hapus</button>
                                                         
                                                         <input type="hidden" name="idx" value="<?= $row['id'] ?>">
+                                                    <?php } ?>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -80,3 +89,8 @@
                             </div>
                         </div>
                     </div>
+<?php
+}else{
+echo '<script> Alert("user/password anda salah");history.back();</script>';
+}
+?>
