@@ -20,8 +20,12 @@
                             <div class="card-header">
                                 <!--<i class="fas fa-table me-1"></i>
                                 Data Produk-->
-                                <a href="index.php?url=produk_form" class="btn btn-primary btn-sm">Tambah</a>
-                            </div>
+                                <?php     
+                                    if($sesi['role']!='staff'){
+                                    ?>
+                                    <a href="index.php?url=produk_form" class="btn btn-primary btn-sm">Tambah</a>
+                                <?php } ?>
+                                </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
@@ -66,10 +70,10 @@
                                                 <th><?= $row['kategori'] ?></th>
                                                 <td>
                                                     <form action="produk_controller.php" method="post">
-                                                    <?php     
-                                                    if($sesi['role']!='staff'){
-                                                        ?>
                                                         <a href="index.php?url=produk_detail&id=<?= $row ['id'] ?>" class="btn btn-info btn-sm">Detail</a>
+                                                        <?php     
+                                                    if($sesi['role']!=('staff' && 'manager')){
+                                                        ?>
                                                         <a href="index.php?url=produk_form&idedit=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Ubah</a>
                                                         
                                                         

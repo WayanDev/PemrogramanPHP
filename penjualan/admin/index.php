@@ -7,6 +7,8 @@ include_once 'models/Pelanggan.php';
 include_once 'models/Pesanan.php';
 include_once 'models/Kartu.php';
 include_once 'models/Member.php';
+$sesi = $_SESSION['MEMBER'];
+    if(isset($sesi)){
 include_once 'top.php';
 include_once 'menu.php';
 ?>
@@ -31,5 +33,7 @@ include_once 'menu.php';
 
 <?php
 include_once 'bottom.php';
+}else{
+echo '<script> Alert("user/password anda salah");history.back();</script>';
+}
 ?>
-
